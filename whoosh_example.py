@@ -4,7 +4,7 @@ from whoosh.index import open_dir, create_in
 from whoosh.analysis import StopFilter
 from whoosh.analysis import RegexTokenizer
 from collections import Counter
-import pprint
+from whoosh.analysis import LowercaseFilter
 
 
 #=============Input===========
@@ -38,14 +38,15 @@ tokenizer = RegexTokenizer()
 tokenList = []
 stopper = StopFilter()
 
-for token in tokenizer(io.open('sample/material1.txt', encoding='utf-8').read()):
+
+for token in stopper(tokenizer(io.open('sample/material1.txt', encoding='utf-8').read().lower())):
 
     tokenList.append(token.text)
 
-for word in tokenList:
-    print (word)
-    print tokenList[]
+print Counter(tokenList)
 
+for element in Counter(tokenList):
+    print elem
 
 
 
