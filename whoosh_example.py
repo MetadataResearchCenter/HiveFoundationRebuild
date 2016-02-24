@@ -43,17 +43,8 @@ writer.commit()
 
 
 #=============Query===========
-# index = open_dir("index")
-# reader = index.reader()
-# print index
-# searcher = index.searcher()
-# query = And([Term("text", "particular"), Term("text", "multicomponent"), Term("text", "hypotheses")])
-#
-# results = searcher.search(query)
-# print('# of hits:', len(results))
-# print('Best Match:', results[0])
 
-searcher = index.searcher(weighting=scoring.TF_IDF())
+searcher = index.searcher()
 
 print list(searcher.lexicon("text"))
 
@@ -61,9 +52,17 @@ qp = QueryParser("text", schema = my_schema)
 q = qp.parse(u"In addition, the substantial shift")
 
 with index.searcher() as s:
-    results = s.search(q)
+    results = s.search(q, terms = True)
 
 found = results.scored_length()
+
+if results.has_matched_terms():
+    # What terms matched in the results?
+    print(results.matched_terms())
+
+    # What terms matched in each hit?
+    for hit in results:
+        print(hit.matched_terms())
 
 if results.has_exact_length():
     print("Scored", found, "of exactly", len(results), "documents")
