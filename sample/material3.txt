@@ -1,0 +1,3 @@
+Short-range phase coherence and origin of the 1T-TiSe2 charge density wave
+
+The impact of variable Ti self-doping on the 1T-TiSe2 charge density wave (CDW) is studied by scanning tunneling microscopy. Supported by density functional theory we show that agglomeration of intercalated-Ti atoms acts as preferential nucleation centers for the CDW that breaks up in phaseshifted CDW domains whose size directly depends on the intercalated-Ti concentration and which are separated by atomically-sharp phase boundaries. The close relationship between the diminution of the CDW domain size and the disappearance of the anomalous peak in the temperature dependent resistivity allows to draw a coherent picture of the 1T-TiSe2 CDW phase transition and its relation to excitons.

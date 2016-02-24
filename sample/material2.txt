@@ -1,0 +1,3 @@
+Eutectic Growth in Two-Phase Multicomponent Alloys
+
+A theory of two-phase eutectic growth for a multicomponent alloy is presented. This theory employs the thermodynamic equilibrium at the solid/liquid interface and thus makes it possible to use standard CALPHAD databases to determine the effects of multicomponent phase equilibrium on eutectic growth. Using the same hypotheses as the Jackson Hunt theory, we find that the growth law determined for binary alloys in the Jackson Hunt theory can be generalized to systems with N elements. In particular, a new model is derived from this theory for ternary two-phase eutectics. The use of this model to predict the eutectic microstructure of systems is discussed.
