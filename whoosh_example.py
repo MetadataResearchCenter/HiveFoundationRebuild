@@ -1,8 +1,9 @@
 from whoosh.fields import Schema
 from whoosh.fields import ID, TEXT
 from whoosh.index import open_dir, create_in
-from whoosh.qparser import QueryParser
+from whoosh.analysis import StopFilter
 from whoosh.analysis import RegexTokenizer
+from whoosh.analysis import LowercaseFilter
 from collections import Counter
 
 
@@ -31,40 +32,13 @@ writer.add_document(id = u'material1',
                     text = io.open('sample/material1.txt', encoding='utf-8').read())
 writer.commit()
 
-#=============Searcher===========
-
-searcher = index.searcher()
-
-print list(searcher.lexicon("text"))
-
-qp = QueryParser("text", schema = my_schema)
-q = qp.parse(u"In addition, the substantial shift")
-
-with index.searcher() as s:
-    results = s.search(q, terms = True)
-
-found = results.scored_length()
-#
-# if results.has_matched_terms():
-#     # What terms matched in the results?
-#     print(results.matched_terms())
-#
-#     # What terms matched in each hit?
-#     for hit in results:
-#         print(hit.matched_terms())
-#
-# if results.has_exact_length():
-#     print("Scored", found, "of exactly", len(results), "documents")
-# else:
-#     low = results.estimated_min_length()
-#     high = results.estimated_length()
-#
-#     print("Scored", found, "of between", low, "and", high, "documents")
-
 #=============Analyzer===========
 
 tokenizer = RegexTokenizer()
 tokenList = []
-for token in tokenizer(io.open('sample/material1.txt', encoding='utf-8').read()):
-    tokenList.append(token.text)
+stopper = StopFilter()
+tokenList = [t.text for t in tokenizer(io.open('sample/material1.txt', encoding='utf-8'))]
+
+
+
 print Counter(tokenList)
