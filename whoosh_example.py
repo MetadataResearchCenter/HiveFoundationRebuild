@@ -4,14 +4,14 @@ from whoosh.index import open_dir, create_in
 from whoosh.analysis import StopFilter
 from whoosh.analysis import RegexTokenizer
 from collections import Counter
-from whoosh.analysis import LowercaseFilter
+from nltk.corpus import stopwords
 
 
 #=============Input===========
 # location = input('Enter the file name: ')
 # print location
 
-#=============Index===========
+#=============UATIndex===========
 my_schema = Schema(id = ID(unique=True, stored=True), 
                    path = ID(stored=True), 
                    source = ID(stored=True),
@@ -26,27 +26,41 @@ writer = index.writer()
 
 import io
 writer.add_document(id = u'material1',
-                    path = u'sample/material1.txt',
+                    path = u'sample/astronomy\ article',
                     source = u'material1.txt',
                     title = u'Voltage Scaling of Graphene Device on SrTiO3 Epitaxial Thin Film',
-                    text = io.open('sample/material1.txt', encoding='utf-8').read())
+                    text = io.open('sample/astronomyArticle.txt', encoding='utf-8').read())
 writer.commit()
+
+#=============UATSearcher===========
+UATSearcher = index.searcher()
+
+
+
+
+#=============StopWord===========
 
 #=============Analyzer===========
 
 tokenizer = RegexTokenizer()
 tokenList = []
-stopper = StopFilter()
 
+stopWordsFile1 = open("stopwords (1).txt", "r")
+stopWordsFile2 = open("stopwords_en.txt", "r")
 
-for token in stopper(tokenizer(io.open('sample/material1.txt', encoding='utf-8').read().lower())):
+stopwords1 = stopWordsFile1.read().splitlines()
+stopwords2 = stopWordsFile2.read().splitlines()
+stopwords = stopwords1 + stopwords2
 
+stopper = StopFilter(stoplist = stopwords)
+
+# try to make lowercasefilter works
+for token in stopper(tokenizer(io.open('sample/astronomyArticle.txt', encoding='utf-8').read().lower())):
     tokenList.append(token.text)
 
 print Counter(tokenList)
 
-for element in Counter(tokenList):
-    print elem
+
 
 
 
