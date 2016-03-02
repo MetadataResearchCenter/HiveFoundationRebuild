@@ -3,15 +3,15 @@ from whoosh.fields import ID, TEXT
 from whoosh.index import open_dir, create_in
 from whoosh.analysis import StopFilter
 from whoosh.analysis import RegexTokenizer
+from whoosh.qparser import QueryParser
 from collections import Counter
-from nltk.corpus import stopwords
+# from nltk.corpus import stopwords
 
 
 #=============Input===========
-# location = input('Enter the file name: ')
-# print location
 
-#=============UATIndex===========
+
+#=============Input Indexing===========
 my_schema = Schema(id = ID(unique=True, stored=True), 
                    path = ID(stored=True), 
                    source = ID(stored=True),
@@ -25,22 +25,22 @@ index = open_dir("index")
 writer = index.writer()
 
 import io
-writer.add_document(id = u'material1',
-                    path = u'sample/astronomy\ article',
-                    source = u'material1.txt',
-                    title = u'Voltage Scaling of Graphene Device on SrTiO3 Epitaxial Thin Film',
-                    text = io.open('sample/astronomyArticle.txt', encoding='utf-8').read())
+writer.add_document(id = u'uat_voc',
+                    path = u'sample/uat_voc.txt',
+                    source = u'uat_voc.txt',
+                    title = u'uat_voc',
+                    text = io.open('uat_voc.txt', encoding='utf-8').read())
 writer.commit()
 
-#=============UATSearcher===========
-UATSearcher = index.searcher()
+#=============Input Searcher===========
 
+inputSearcher = index.searcher()
 
+phrases = list(inputSearcher.lexicon("text"))
 
+qp = QueryParser("text", schema=index.schema)
 
 #=============StopWord===========
-
-#=============Analyzer===========
 
 tokenizer = RegexTokenizer()
 tokenList = []
@@ -57,6 +57,15 @@ stopper = StopFilter(stoplist = stopwords)
 # try to make lowercasefilter works
 for token in stopper(tokenizer(io.open('sample/astronomyArticle.txt', encoding='utf-8').read().lower())):
     tokenList.append(token.text)
+
+#=============KeywordsMatch===========
+
+for token in tokenList:
+    query = qp.parse(token)
+    searchReuslt = inputSearcher.search(query)
+    print searchReuslt
+    if len(searchReuslt) == 0:
+        tokenList.remove(token)
 
 print Counter(tokenList)
 

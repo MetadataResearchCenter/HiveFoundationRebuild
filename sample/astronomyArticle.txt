@@ -1,4 +1,6 @@
-How acidic is the ocean on Saturn's icy moon Enceladus? It's a fundamental question to understanding if this geyser-spouting moon could support life.
+How acidic is the ocean on Saturn's icy moon Enceladus?
+
+It's a fundamental question to understanding if this geyser-spouting moon could support life.
 
 Enceladus is part of a family of icy worlds, including Europa (at Jupiter) and Titan (also at Saturn), populating our outer solar system. These bodies are some of the most promising places for life because they receive tidal energy from the gas giants they orbit and some contain liquid water.
 
@@ -11,8 +13,6 @@ Recently, geochemist Christopher Glein led a team that developed a new approach 
 
 Glein's team tried to create the most comprehensive chemical model to date of the ocean by accounting for compositional constraints from both INMS and CDA, such as the salinity of the plume. Their model suggests that Enceladus has a sodium, chloride and carbonate ocean with an alkaline pH of 11 or 12, close to the equivalent of ammonia or soapy water. The estimated pH is slightly higher by 1 to 2 units than an earlier estimate based on CDA data alone, but the different modeling approaches are consistent in terms of the overall chemistry of an alkaline ocean.
 
-Serpentinization, which is believed to occur on Enceladus, may also happen on other moons such as Europa (pictured).
-Serpentinization, which is believed to occur on Enceladus, may also happen on other moons such as Europa (pictured).
 Credit: NASA/JPL-Caltech/SETI Institute
 "It's encouraging that there is general agreement, considering that these approaches are based on spacecraft data from a plume. This is much more difficult than getting the pH of a swimming pool, so it would not be surprising if the models are missing some of the details. Of course, we are trying to reconcile the data as much as possible because the details may provide clues to understanding the eruptive processes that turn an ocean's chemistry into a plume," said Glein.
 
@@ -38,4 +38,3 @@ The data analysis from this flyby may be completed in time for the American Geop
 
 Follow us @Spacedotcom, Facebook and Google+. Original article on Space.com.
 
-- See more at: http://www.space.com/32021-how-life-friendly-is-enceladus-ocean.html#sthash.BR1lxnEF.dpuf
