@@ -5,13 +5,11 @@ from whoosh.analysis import StopFilter
 from whoosh.analysis import RegexTokenizer
 from whoosh.qparser import QueryParser
 from collections import Counter
-# from nltk.corpus import stopwords
-
 
 #=============Input===========
 
 
-#=============Input Indexing===========
+#=============UAT Indexing===========
 my_schema = Schema(id = ID(unique=True, stored=True), 
                    path = ID(stored=True), 
                    source = ID(stored=True),
@@ -32,11 +30,9 @@ writer.add_document(id = u'uat_voc',
                     text = io.open('uat_voc.txt', encoding='utf-8').read())
 writer.commit()
 
-#=============Input Searcher===========
+#=============UATSearcher===========
 
-inputSearcher = index.searcher()
-
-phrases = list(inputSearcher.lexicon("text"))
+UATSearcher = index.searcher()
 
 qp = QueryParser("text", schema=index.schema)
 
@@ -62,10 +58,9 @@ for token in stopper(tokenizer(io.open('sample/astronomyArticle.txt', encoding='
 
 for token in tokenList:
     query = qp.parse(token)
-    searchReuslt = inputSearcher.search(query)
-    print searchReuslt
+    searchReuslt = UATSearcher.search(query)
     if len(searchReuslt) == 0:
-        tokenList.remove(token)
+        tokenList = filter(lambda a: a != token, tokenList)
 
 print Counter(tokenList)
 
