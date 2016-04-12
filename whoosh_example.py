@@ -30,7 +30,7 @@ def dbConnect():
 
 dbConnect()
 
-#=============Retrieving Data===========
+#=============Retrieving Data from DB===========
 
 def findConceptsLike():
     prefLabels = []
