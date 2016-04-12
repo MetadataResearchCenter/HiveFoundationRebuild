@@ -5,13 +5,55 @@ from whoosh.analysis import StopFilter
 from whoosh.analysis import RegexTokenizer
 from whoosh.qparser import QueryParser
 from collections import Counter
+import sqlite3
+import os
 
-#=============Input===========
+#=============Database Connection===========
+db = None
 
+def dbConnect():
+    global db
+    try:
+        dbName = "concepts.sqlite"
+        if os.path.exists(dbName):
+            db = sqlite3.connect(dbName)
+            print "database connected"
+        else:
+            print ("Error:", dbName, "does not exits" )
+
+    except sqlite3.IntegrityError as err:
+        print('Integrity Error on connect:', err)
+    except sqlite3.OperationalError as err:
+        print('Operational Error in connect:', err)
+    except sqlite3.Error as err:
+        print('Error in connect:', err)
+
+dbConnect()
+
+#=============Retrieving Data===========
+
+def findConceptsLike():
+    prefLabels = []
+    
+    sql = 'SELECT PrefLabel FROM CONCEPT'
+    try:
+        cursor = db.cursor()
+        cursor.execute(sql)
+        rows = cursor.fetchall()
+        if len(rows) > 0:
+            for r in rows:
+                prefLabels.append(r[0])
+        return prefLabels
+    except sqlite3.IntegrityError as err:
+        print('Integrity Error in getPrefLabelFor:', err)
+    except sqlite3.OperationalError as err:
+        print('Operational Error in getPrefLabelFor:', err)
+    except sqlite3.Error as err:
+        print('Error in getPrefLabelFor:', err)
 
 #=============UAT Indexing===========
-my_schema = Schema(id = ID(unique=True, stored=True), 
-                   path = ID(stored=True), 
+my_schema = Schema(id = ID(unique=True, stored=True),
+                   path = ID(stored=True),
                    source = ID(stored=True),
                    author = TEXT(stored=True),
                    title = TEXT(stored=True),
@@ -63,7 +105,6 @@ for token in tokenList:
         tokenList = filter(lambda a: a != token, tokenList)
 
 print Counter(tokenList)
-
 
 
 
