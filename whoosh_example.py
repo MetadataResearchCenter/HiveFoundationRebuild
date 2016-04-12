@@ -43,13 +43,15 @@ def findConceptsLike():
         if len(rows) > 0:
             for r in rows:
                 prefLabels.append(r[0])
-        return prefLabels
+        print prefLabels
     except sqlite3.IntegrityError as err:
         print('Integrity Error in getPrefLabelFor:', err)
     except sqlite3.OperationalError as err:
         print('Operational Error in getPrefLabelFor:', err)
     except sqlite3.Error as err:
         print('Error in getPrefLabelFor:', err)
+
+findConceptsLike()
 
 #=============UAT Indexing===========
 my_schema = Schema(id = ID(unique=True, stored=True),
