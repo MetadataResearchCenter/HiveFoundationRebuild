@@ -34,7 +34,7 @@ dbConnect()
 
 def findConceptsLike():
     prefLabels = []
-    
+
     sql = 'SELECT PrefLabel FROM CONCEPT'
     try:
         cursor = db.cursor()
@@ -43,7 +43,7 @@ def findConceptsLike():
         if len(rows) > 0:
             for r in rows:
                 prefLabels.append(r[0])
-        print prefLabels
+        return prefLabels
     except sqlite3.IntegrityError as err:
         print('Integrity Error in getPrefLabelFor:', err)
     except sqlite3.OperationalError as err:
@@ -51,7 +51,7 @@ def findConceptsLike():
     except sqlite3.Error as err:
         print('Error in getPrefLabelFor:', err)
 
-findConceptsLike()
+UAT_words = unicode(findConceptsLike())
 
 #=============UAT Indexing===========
 my_schema = Schema(id = ID(unique=True, stored=True),
@@ -68,12 +68,12 @@ writer = index.writer()
 
 import io
 writer.add_document(id = u'uat_voc',
-                    path = u'sample/uat_voc.txt',
-                    source = u'uat_voc.txt',
+                    path = u'HiveFoundationRebuild/concepts.sqlite',
+                    source = u'concepts.sqlite',
                     title = u'uat_voc',
-                    text = io.open('uat_voc.txt', encoding='utf-8').read())
-writer.commit()
+                    text = UAT_words)
 
+writer.commit()
 #=============UATSearcher===========
 
 UATSearcher = index.searcher()
