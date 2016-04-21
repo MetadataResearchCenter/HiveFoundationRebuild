@@ -106,7 +106,10 @@ for token in tokenList:
     if len(searchReuslt) == 0:
         tokenList = filter(lambda a: a != token, tokenList)
 
-print Counter(tokenList)
+def counting(token):
+    print Counter(token)
+
+counting(tokenList)
 
 
 
