@@ -85,8 +85,8 @@ qp = QueryParser("text", schema=index.schema)
 tokenizer = RegexTokenizer()
 tokenList = []
 
-stopWordsFile1 = open("stopwords (1).txt", "r")
-stopWordsFile2 = open("stopwords_en.txt", "r")
+stopWordsFile1 = open("stopwords_1.txt", "r")
+stopWordsFile2 = open("stopwords_2.txt", "r")
 
 stopwords1 = stopWordsFile1.read().splitlines()
 stopwords2 = stopWordsFile2.read().splitlines()
@@ -110,6 +110,7 @@ def counting(token):
     print Counter(token)
 
 counting(tokenList)
+
 
 
 
