@@ -1,9 +1,9 @@
-import os.path
-import re
+import os
+import sqlite3
 from nltk.corpus import stopwords
+from whoosh import scoring
 from whoosh.fields import Schema, TEXT, ID
 from whoosh.index import create_in
-
 
 
 #=============design schema===========
@@ -29,7 +29,7 @@ def add_doc(index, doc_loc):
     writer.add_document(title=u"Astronomy Article", path=doc_loc, content=content)
     writer.commit()
 
-#=============getting all the stop words (unused)===========
+#=============getting all the stop words (unused, customized stop_word needed?)===========
 # def get_stop_word():
 #     stop_words = []
 #
@@ -45,8 +45,47 @@ def add_doc(index, doc_loc):
 #
 #     return stop_words
 
+#=============getting UAT keywords from database===========
+db = None
+
+def dbConnect():
+    global db
+    try:
+        dbName = "concepts.sqlite"
+        if os.path.exists(dbName):
+            db = sqlite3.connect(dbName)
+            print "database connected"
+        else:
+            print ("Error:", dbName, "does not exits" )
+
+    except sqlite3.IntegrityError as err:
+        print('Integrity Error on connect:', err)
+    except sqlite3.OperationalError as err:
+        print('Operational Error in connect:', err)
+    except sqlite3.Error as err:
+        print('Error in connect:', err)
+
+def findConceptsLike():
+    prefLabels = []
+
+    sql = 'SELECT PrefLabel FROM CONCEPT'
+    try:
+        cursor = db.cursor()
+        cursor.execute(sql)
+        rows = cursor.fetchall()
+        if len(rows) > 0:
+            for r in rows:
+                prefLabels.append(r[0])
+        return prefLabels
+    except sqlite3.IntegrityError as err:
+        print('Integrity Error in getPrefLabelFor:', err)
+    except sqlite3.OperationalError as err:
+        print('Operational Error in getPrefLabelFor:', err)
+    except sqlite3.Error as err:
+        print('Error in getPrefLabelFor:', err)
+
 #=============searching and filtering stop words===========
-def searcher(index):
+def searcher(index, thesaurus):
     try:
         searcher = index.searcher()
         word_list = list(searcher.lexicon("content"))
@@ -54,7 +93,7 @@ def searcher(index):
     finally:
         searcher.close()
 
-def filter(word_list):
+def stop_word_filter(word_list):
     filtered_list = filter(lambda x: x not in stopwords.words('english'), word_list)
     return filtered_list
 
@@ -63,8 +102,11 @@ if __name__ == "__main__":
     index = create_index(my_schema)
     add_doc(index, "/Users/Robert/Desktop/HiveFoundationRebuild/sample/astronomyArticle.txt")
     word_list = searcher(index)
-    filtered_content = filter(word_list)
-    print filtered_content
+    filtered_content = stop_word_filter(word_list)
+    dbConnect()
+    UAT_words = unicode(findConceptsLike())
+
+
 
 
 
