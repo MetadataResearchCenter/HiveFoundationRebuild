@@ -53,7 +53,7 @@ def dbConnect():
         dbName = "concepts.sqlite"
         if os.path.exists(dbName):
             db = sqlite3.connect(dbName)
-            print "database connected"
+            print ("database connected")
         else:
             print ("Error:", dbName, "does not exits" )
 
@@ -108,7 +108,7 @@ def stop_word_filter(word_list, stop_word_list):
 
 if __name__ == "__main__":
     index = create_index(my_schema)
-    add_doc(index, "/Users/Robert/Desktop/HiveFoundationRebuild/sample/astronomyArticle.txt")
+    add_doc(index, "./sample/astronomyArticle.txt")
     stop_word_list = get_stop_word()
     word_list = get_word_list(index)
     filtered_content = stop_word_filter(word_list, stop_word_list)
