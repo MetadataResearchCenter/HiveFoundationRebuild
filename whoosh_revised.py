@@ -1,5 +1,6 @@
 import os
 import sqlite3
+import binascii
 from whoosh.qparser import QueryParser
 from whoosh.fields import Schema, TEXT, ID
 from whoosh.index import create_in
@@ -22,10 +23,9 @@ def create_index(schema):
 def add_doc(index, doc_loc):
     writer = index.writer()
     fileobj = open(doc_loc, "rb")
-    content = unicode(fileobj.read())
+    content = fileobj.read()
     fileobj.close()
-    doc_loc = unicode(doc_loc)
-    writer.add_document(title=u"Astronomy Article", path=doc_loc, content=content)
+    writer.add_document(title=u"Astronomy Article", path=doc_loc, content=str(content))
     writer.commit()
 
 #=============getting all the stop words (unused, customized stop_word needed?)===========
@@ -67,7 +67,7 @@ def dbConnect():
 def findConceptsLike(term):
     prefLabels = []
 
-    sql = 'SELECT PrefLabel FROM CONCEPT WHERE PrefLabel LIKE' + "'%" + term + "%'"
+    sql = 'SELECT PrefLabel FROM CONCEPT WHERE PrefLabel LIKE' + "'%" + term.decode('utf-8') + "%'"
 
     try:
         cursor = db.cursor()
@@ -104,7 +104,7 @@ def hitting(word_list):
 
 def stop_word_filter(word_list, stop_word_list):
     filtered_list = filter(lambda x: x not in stop_word_list, word_list)
-    return unicode(filtered_list)
+    return filtered_list
 
 if __name__ == "__main__":
     index = create_index(my_schema)
@@ -113,22 +113,4 @@ if __name__ == "__main__":
     word_list = get_word_list(index)
     filtered_content = stop_word_filter(word_list, stop_word_list)
     dbConnect()
-    # print hitting(filtered_content)
-    print (filtered_content)
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+    print (hitting(filtered_content))
