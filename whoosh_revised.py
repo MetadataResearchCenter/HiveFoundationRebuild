@@ -1,10 +1,8 @@
 import os
 import sqlite3
-import binascii
 from whoosh.qparser import QueryParser
 from whoosh.fields import Schema, TEXT, ID
 from whoosh.index import create_in
-
 
 #=============design schema===========
 my_schema = Schema(id = ID(unique=True, stored=True),
