@@ -3,13 +3,14 @@ import sqlite3
 from whoosh.qparser import QueryParser
 from whoosh.fields import Schema, TEXT, ID
 from whoosh.index import create_in
+from whoosh.analysis import StemmingAnalyzer
 
 #=============design schema===========
 my_schema = Schema(id = ID(unique=True, stored=True),
                    path = ID(stored=True),
                    author = TEXT,
                    title = TEXT(stored=True),
-                   content = TEXT(stored=True))
+                   content = TEXT(stored=True, analyzer=StemmingAnalyzer()))
 
 #=============create index and add document===========
 def create_index(schema):
@@ -101,14 +102,17 @@ def hitting(word_list):
     return result
 
 def stop_word_filter(word_list, stop_word_list):
-    filtered_list = filter(lambda x: x not in stop_word_list, word_list)
-    return filtered_list
+    filtered_list = filter(lambda x: x.decode("utf-8") not in stop_word_list, word_list)
+    return list(filtered_list)
 
 if __name__ == "__main__":
     index = create_index(my_schema)
     add_doc(index, "./sample/astronomyArticle.txt")
     stop_word_list = get_stop_word()
+    print (stop_word_list)
     word_list = get_word_list(index)
+    print (word_list)
     filtered_content = stop_word_filter(word_list, stop_word_list)
+    print (filtered_content)
     dbConnect()
     print (hitting(filtered_content))
