@@ -1,46 +1,45 @@
-import os
+import os, os.path
 import sqlite3
-from whoosh.qparser import QueryParser
+from whoosh import index
 from whoosh.fields import Schema, TEXT, ID
-from whoosh.index import create_in
 from whoosh.analysis import StemmingAnalyzer
+from whoosh.qparser import QueryParser
 
 #=============design schema===========
-my_schema = Schema(id = ID(unique=True, stored=True),
-                   path = ID(stored=True),
+my_schema = Schema(path = ID,
                    author = TEXT,
-                   title = TEXT(stored=True),
+                   date = ID,
+                   title = TEXT(stored=True, analyzer=StemmingAnalyzer()),
                    content = TEXT(stored=True, analyzer=StemmingAnalyzer()))
 
 #=============create index and add document===========
 def create_index(schema):
     if not os.path.exists("index"):
-        mkdir("index")
-    ix = create_in("index", schema=schema)
+        os.mkdir("index")
+        ix = index.create_in("index", schema=schema)
+    else:
+        ix = index.open_dir("index")
     return ix
 
-def add_doc(index, doc_loc):
+def index_doc(index, doc_loc):
     writer = index.writer()
-    fileobj = open(doc_loc, "rb")
+    fileobj = open(doc_loc, "r")
     content = fileobj.read()
+    writer.add_document(title=u"Astronomy Article", path=doc_loc, content=content)
     fileobj.close()
-    writer.add_document(title=u"Astronomy Article", path=doc_loc, content=str(content))
     writer.commit()
 
 #=============getting all the stop words (unused, customized stop_word needed?)===========
 def get_stop_word():
     stop_words = []
-
     with open('stopwords_1.txt','r') as f1:
         for line in f1:
             for word in line.split():
                stop_words.append(word)
-
     with open('stopwords_2.txt','r') as f2:
         for line in f2:
             for word in line.split():
                stop_words.append(word)
-
     return stop_words
 
 #=============getting UAT keywords from database===========
@@ -84,14 +83,17 @@ def findConceptsLike(term):
         print('Error in getPrefLabelFor:', err)
 
 #=============searching and counting===========
-def get_word_list(index):
+def querying(index, keyword):
     try:
         searcher = index.searcher()
-        return list(searcher.lexicon("content"))
+        qp = QueryParser("word", schema=index.schema)
+        q = qp.parse("Sarah")
+        result = searcher.search(q, limit=10)
+        print (result)
     finally:
         searcher.close()
 
-def hitting(word_list):
+def hits(word_list):
     result = {}
     for w in word_list:
         if findConceptsLike(w):
@@ -105,14 +107,11 @@ def stop_word_filter(word_list, stop_word_list):
     filtered_list = filter(lambda x: x.decode("utf-8") not in stop_word_list, word_list)
     return list(filtered_list)
 
+
 if __name__ == "__main__":
     index = create_index(my_schema)
-    add_doc(index, "./sample/astronomyArticle.txt")
-    stop_word_list = get_stop_word()
-    print (stop_word_list)
-    word_list = get_word_list(index)
-    print (word_list)
-    filtered_content = stop_word_filter(word_list, stop_word_list)
-    print (filtered_content)
-    dbConnect()
-    print (hitting(filtered_content))
+    index_doc(index, "./sample/astronomyArticle.txt")
+    print (index)
+    searcher = index.searcher()
+    querying(index, u"world")
+

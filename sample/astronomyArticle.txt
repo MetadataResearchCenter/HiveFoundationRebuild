@@ -1,41 +1,45 @@
-How acidic is the ocean on Saturn's icy moon Enceladus?
+What's Hiding Below Jupiter's Clouds? New Radio Map Reveals Ammonia Swirls
 
-It's a fundamental question to understanding if this geyser-spouting moon could support life.
+By Sarah Lewin, Staff Writer | June 2, 2016 02:00pm ET
 
-Enceladus is part of a family of icy worlds, including Europa (at Jupiter) and Titan (also at Saturn), populating our outer solar system. These bodies are some of the most promising places for life because they receive tidal energy from the gas giants they orbit and some contain liquid water.
+Just one month before the Juno spacecraft arrives at the gas giant Jupiter, the most detailed radio-wave maps ever of the planet's atmosphere dig beneath surface-level clouds to reveal the whirling ammonia flows that help form its distinctive features.
 
-The Cassini spacecraft has been taking regular measurements of Enceladus for more than a decade to evaluate its environment. One of the key factors influencing the habitability of an environment is its chemical composition, in particular its pH. On Earth, it's possible for life to exist near the extremes of the pH scale that ranges from 0 (battery acid) to 14 (drain cleaner). Knowing the pH can help us to identify geochemical reactions that affect the habitability of an environment, because many reactions cause predictable changes in pH. [Photos: Enceladus, Saturn's Cold, Bright Moon]
+Researchers used the upgraded Very Large Array (VLA) radio telescope in New Mexico to probe 60 miles (100 kilometers) below the top of the gas giant's pervasive clouds — revealing a correlation between the colorful whirls and spots on the visible surface and the movement of gas below, which is driven by Jupiter's internal heat source.
 
-Oceanography of another world
-While we cannot stick a strip of pH paper into the ocean water on Enceladus to measure the pH directly, it can be estimated by looking at molecules in its plumes that change form in response to pH changes.
+"We in essence created a three-dimensional picture of ammonia gas in Jupiter's atmosphere, which reveals upward and downward motions within the turbulent atmosphere," Imke de Pater, an astronomer at the University of California, Berkeley, and lead author on the new work, said in a statement. [Amazing Photos of Jupiter and Its Many Moons]
 
-Recently, geochemist Christopher Glein led a team that developed a new approach to estimating the pH of Enceladus' ocean using observational data of the carbonate geochemistry of plume material. This is a classic problem in geochemical studies of Earth (such as rainwater), but scientists can now solve the carbonate problem on an extraterrestrial body thanks to measurements of dissolved inorganic carbon by the Cosmic Dust Analyzer (CDA), and carbon dioxide gas by the Ion and Neutral Mass Spectrometer (INMS) onboard Cassini.
+Those maps reveal more detail than any previous radio map, spotting features just 800 miles (1,300 km) across, UC Berkeley officials said in the statement.
 
-Glein's team tried to create the most comprehensive chemical model to date of the ocean by accounting for compositional constraints from both INMS and CDA, such as the salinity of the plume. Their model suggests that Enceladus has a sodium, chloride and carbonate ocean with an alkaline pH of 11 or 12, close to the equivalent of ammonia or soapy water. The estimated pH is slightly higher by 1 to 2 units than an earlier estimate based on CDA data alone, but the different modeling approaches are consistent in terms of the overall chemistry of an alkaline ocean.
+The researchers saw that ammonium-rich gases rose to form the upper cloud layers — ammonium hydrosulfide at about 200 Kelvin (minus 100 degrees Fahrenheit) and a cloud of ammonia-ice at 160 K (minus 170 degrees F), both of which can be seen with optical telescopes, officials said in the statement. The map also revealed gases with less ammonia sinking back down into the planet.
 
-Credit: NASA/JPL-Caltech/SETI Institute
-"It's encouraging that there is general agreement, considering that these approaches are based on spacecraft data from a plume. This is much more difficult than getting the pH of a swimming pool, so it would not be surprising if the models are missing some of the details. Of course, we are trying to reconcile the data as much as possible because the details may provide clues to understanding the eruptive processes that turn an ocean's chemistry into a plume," said Glein.
+The areas with less ammonia, spread in a broad band around the planet, seem to correlate with "hot spots" on the planet's surface — areas that researchers have pinpointed as particularly bright in radio and infrared images. Those "hot spots" appear as holes in the planet's cloud cover, and look hazy in optical light.
 
-A paper based on Glein's research, "The pH of Enceladus' ocean," was published in Geochimica et Cosmochimica Acta in August. Glein is a research scientist at Southwest Research Institute, but completed the research while at the Carnegie Institution of Washington. The work was funded by the NASA Astrobiology Institute element of the Astrobiology Program at NASA. [Inside Enceladus, Icy Moon of Saturn (Infographic)]
+"With radio, we can peer through the clouds and see that those hotspots are interleaved with plumes of ammonia rising from deep in the planet, tracing the vertical undulations of an equatorial wave system," Michael Wong, an astronomer who is also at UC Berkeley, said in the statement.
 
-Hydrothermal activity for life
-A portion of the "Lost City" hydrothermal vents in the Atlantic Ocean, which may be most similar to what is happening on Enceladus.
+To build the new map, the researchers observed the many different wavelengths of radio waves emitted by the planet's atmosphere over time. While visible-light telescopes can get back images from the surface quickly, the VLA radio telescope has to observe for multiple hours. The telescope's upgraded sensitivity, combined with new data-processing algorithms, let the researchers unblur the smeared images that are made by the fast-moving planetary atmosphere. Those images can be combined with the Hubble Space Telescope's visible views of the planet and others to get a fuller view of the environment.
 
-Credit: NASA
+"We now see fine structure in the 12- to 18-gigahertz band, much like we see in the visible, especially near the Great Red Spot, where we see a lot of little, curly features," Wong said, referring to the massive storm on Jupiter's surface that's two times Earth's diameter. "Those trace really complex upwelling and downwelling images there."
 
-It is believed that Enceladus' alkaline chemistry comes from a geochemical process called serpentinization. This happens when a rock that is rich in magnesium and iron is converted to more clay-type minerals. On Earth, we see this process in very limited locations, such as the low-temperature hydrothermal vent field named Lost City in the Atlantic Ocean.
+On July 4, NASA's Juno spacecraft will reach Jupiter and begin studying its weather, composition and magnetic environment before diving down through the planet's deep atmosphere. These new Jupiter maps will help researchers fit those findings into the bigger picture of the planet.
 
-"It's exactly what we would expect if there is a liquid water ocean in contact with rocks on and below the ocean floor on Enceladus," Glein said.
+Weird Shapes on Pluto Hint at Icy 'Face-Lift' Over Time
 
-In addition to a high pH, this process produces hydrogen gas, a potent fuel that can drive the formation of organic molecules that in some cases can be building blocks of life.
+By Charles Q. Choi, Space.com Contributor | June 1, 2016 01:01pm ET
 
-An unresolved question, however, is whether serpentinization is taking place now. If the activity is ongoing, this would provide habitable conditions, which could support an ecosystem similar to Lost City. If it occurred long ago, the high pH may be a relict and life may be less likely, although still not impossible if there are other sources of chemical energy.
+Strange geometric shapes miles wide seen on Pluto's icy surface likely formed because of a churning sheet of frozen nitrogen more than a half-mile thick, two new studies find. The findings reinforce the idea that Pluto is not cold and dead but surprisingly geologically active, the researchers say.
 
-Cassini did a final flyby of Enceladus in late October that targeted the chemistry of the plumes directly. The INMS team, which includes Glein, is searching for molecular hydrogen in that plume, which would be chemical evidence of active serpentinization. An absence of molecular hydrogen would be a sign that the serpentinization is extinct.
+The findings could shed light on how other icy dwarf planets far beyond Pluto in the solar system might behave, the researchers added.
 
-The data analysis from this flyby may be completed in time for the American Geophysical Union's fall meeting in December. Glein added that the planned NASA mission to Europa includes advanced descendants of both the CDA and INMS instruments, meaning that in a decade or two, scientists can start to make these same measurements at Europa. This will allow us to better understand the importance of serpentinization across the Solar System.
+Scientists analyzed the most prominent geological feature on Pluto — a vast, oval-shaped basin informally named Sputnik Planum. The area, which stretches across Pluto's equator, is about 347,500 square miles (900,000 square kilometers) and at least 1.2 to 1.8 miles (2 to 3 km) deep. Its shape and surrounding mountains suggest it is a crater left over from a giant cosmic impact "maybe 4 billion or more years ago," said William McKinnon, a planetary geophysicist at Washington University in St. Louis and lead author of one of the two studies analyzing Pluto. [See the Amazing Pluto Pictures by New Horizons]
 
-"On other icy worlds, if they have liquid water oceans, [serpentinization] should be inevitable because these bodies are massive mixtures of water and rock," he said. "Maybe the methane we see in Titan's atmosphere formed when hydrogen from serpentinization combined with deep carbon in a hydrothermal environment. There may also be liquid water on [dwarf planet] Pluto, through cryovolcanoes and a youthful surface. We expect there to be some degree of water-rock interaction on such ocean worlds, setting the stage for serpentinization and the generation of hydrogen that could be utilized if there is anyone out there."
+The mystery of Pluto's polygons
+Sputnik Planum is filled with ice made up predominantly of nitrogen. This frozen nitrogen is broken up into odd, irregular polygons about 6 to 25 miles (10 to 40 km) across, and the centers of some of these polygons rise about 165 feet (50 meters) above their sides.
 
-Follow us @Spacedotcom, Facebook and Google+. Original article on Space.com.
+To discover the origins ofthese mysterious polygons, which the researchers also called "cells," the scientists analyzed data from NASA's New Horizons spacecrraft, which made the first-ever flyby of Pluto in July 2015. Their computer models suggest that convection, or churning that arises from the rising and sinking of warmer and cooler matter, could help explain the giant sizes of these cells. (Pluto's innards are warmer than its surface because of heat from long-lived radioactive material.)
+
+The researchers suggested that similar convective processes may also occur at other dwarf planets, such as those in the Kuiper Belt, the shadowy disk-shaped region beyond the orbit of Neptune that scientists think is populated by a trillion or more comets as well as hundreds of thousands of icy moon-size objects. Such convection might help explain why some icy Kuiper Belt objects are as shiny as they are — such churning would continuously give them new faces of reflective ice relatively unmarred by craters and dust.
+
+The scientists detailed their findings in two papers, one here and the other here, in the June 2 issue of the journal Nature.
+
+
 
